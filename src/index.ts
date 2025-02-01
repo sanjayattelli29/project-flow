@@ -43,7 +43,7 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: config.FRONTEND_ORIGIN,
+    origin: [config.FRONTEND_ORIGIN , 'https://some123456.netlify.app'],
     credentials: true,
   })
 );
@@ -70,8 +70,8 @@ app.use(`${BASE_PATH}/task`, isAuthenticated, taskRoutes);
 
 app.use(errorHandler);
 
-app.listen(config.PORT || 8000 , async () => {
-  console.log(`Server listening on port ${config.PORT} in ${config.NODE_ENV}`);
+app.listen( 8000 , async () => {
+  console.log(`Server listening on port 8000 in ${config.NODE_ENV}`);
   await connectDatabase();
 });
 
