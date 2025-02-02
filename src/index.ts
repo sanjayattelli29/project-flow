@@ -32,8 +32,8 @@ app.use(
     name: "session",
     keys: [config.SESSION_SECRET],
     maxAge: 24 * 60 * 60 * 1000,
-    secure: config.NODE_ENV === "production",
-    sameSite: "lax",
+    secure: true, // Requires HTTPS
+    sameSite: "none", // Allows cross-site cookies
   })
 );
 
@@ -44,7 +44,7 @@ app.use(
   cors({
     origin: config.FRONTEND_ORIGIN,
     credentials: true, // Allow cookies
-    methods: "GET,POST,PUT,DELETE,OPTIONS"
+    methods: "GET,POST,PUT,DELETE,OPTIONS",
   })
 );
 
@@ -74,6 +74,6 @@ app.use(errorHandler);
 
 app.listen( 8000 , async () => {
   console.log(`Server listening on port 8000 in ${config.NODE_ENV}`);
-  console.log("version 1.0.8");
+  console.log("version 1.0.10");
   await connectDatabase();
 });
