@@ -43,7 +43,7 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: [config.FRONTEND_ORIGIN , 'https://some123456.netlify.app'],
+    origin: [config.FRONTEND_ORIGIN , 'https://some123456.netlify.app' , 'http://localhost:5173'],
     credentials: true,
   })
 );
