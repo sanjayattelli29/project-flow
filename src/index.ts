@@ -33,7 +33,6 @@ app.use(
     keys: [config.SESSION_SECRET],
     maxAge: 24 * 60 * 60 * 1000,
     secure: config.NODE_ENV === "production",
-    httpOnly: true,
     sameSite: "lax",
   })
 );
@@ -74,7 +73,6 @@ app.use(errorHandler);
 
 app.listen( 8000 , async () => {
   console.log(`Server listening on port 8000 in ${config.NODE_ENV}`);
-  console.log("version 1.0.0");
+  console.log("version 1.0.2");
   await connectDatabase();
 });
-
