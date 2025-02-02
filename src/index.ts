@@ -41,7 +41,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(
-  cors( )
+  cors({
+    origin:'http://localhost:5173',
+    credentials: true,
+  })
 );
 
 console.log(config.FRONTEND_ORIGIN);
@@ -70,6 +73,6 @@ app.use(errorHandler);
 
 app.listen( 8000 , async () => {
   console.log(`Server listening on port 8000 in ${config.NODE_ENV}`);
-  console.log("version 1.0.4");
+  console.log("version 1.0.5");
   await connectDatabase();
 });
