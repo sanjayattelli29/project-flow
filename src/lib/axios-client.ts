@@ -18,7 +18,7 @@ API.interceptors.response.use(
   async (error) => {
     const { data, status } = error.response;
 
-    if (data === "Unauthorized" && status === 401) {
+    if ( status === 401) {
       window.location.href = "/";
     }
 
